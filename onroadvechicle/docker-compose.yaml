@@ -1,16 +1,16 @@
 version: '3.1'
 services:
   API:
-    image: 'onroadvechicle'
+    image: 'moulali7/springbootdocker'
     ports:
       - "8080:8080"
     depends_on:
       PostgreSQL:
         condition: service_healthy
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/pragna
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=Nitheesh@2000
+      - SPRING_DATASOURCE_PASSWORD=1234
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
   PostgreSQL:
@@ -18,9 +18,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=Nitheesh@2000
+      - POSTGRES_PASSWORD=1234
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=onroadvechicle
+      - POSTGRES_DB=pragna
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
